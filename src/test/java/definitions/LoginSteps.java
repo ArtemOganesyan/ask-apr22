@@ -51,4 +51,8 @@ public class LoginSteps {
     public void iWaitForSeconds(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
+
+    @Then("I click {string} button")
+    public void iClickButton(String arg0) {getDriver().findElement(By.xpath("//h5[contains(@text(),'My Grades')]")).click();
+    }
 }
