@@ -39,8 +39,7 @@ public class LoginSteps {
         System.out.println(r);
         if (role.equals("STUDENT")) {
             assertThat(r).isEqualTo("STUDENT");
-        }
-        else if (role.equals("TEACHER")) {
+        } else if (role.equals("TEACHER")) {
             assertThat(r).isEqualTo("TEACHER");
         } else {
             Assert.fail("User role not found");
@@ -49,13 +48,12 @@ public class LoginSteps {
 
     @And("I wait for {int} seconds")
     public void iWaitForSeconds(int sec) throws InterruptedException {
-        Thread.sleep(sec * 1000);
+        Thread.sleep(sec * 2000);
     }
-}
-
 
     @And("I wait for {int} seconds")
     public void iWaitForSeconds(int sec) throws InterruptedException {
-        Thread.sleep(sec * 3000);
+        Thread.sleep(sec * 2000);
     }
+
 }
