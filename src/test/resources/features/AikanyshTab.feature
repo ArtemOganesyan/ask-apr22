@@ -1,2 +1,3 @@
-hello
+new feature file
+  @smoke test
   
