@@ -51,4 +51,6 @@ public class LoginSteps {
     public void iWaitForSeconds(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
+
+	// some changes here
 }
