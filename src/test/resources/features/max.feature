@@ -5,3 +5,4 @@ Feature: Blablabla
     And
     Then
     Then
+    Then
