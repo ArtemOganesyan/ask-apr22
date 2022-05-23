@@ -51,4 +51,9 @@ public class LoginSteps {
     public void iWaitForSeconds(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
+
+    @And("I wait for {int} seconds")
+    public void iWaitForSeconds(int sec) throws InterruptedException {
+        Thread.sleep(sec * 1000);
+    }
 }
