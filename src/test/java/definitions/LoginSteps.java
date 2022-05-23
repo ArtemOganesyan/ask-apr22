@@ -45,15 +45,3 @@ public class LoginSteps {
             Assert.fail("User role not found");
         }
     }
-
-    @And("I wait for {int} seconds")
-    public void iWaitForSeconds(int sec) throws InterruptedException {
-        Thread.sleep(sec * 2000);
-    }
-
-    @And("I wait for {int} seconds")
-    public void iWaitForSeconds(int sec) throws InterruptedException {
-        Thread.sleep(sec * 2000);
-    }
-
-}
