@@ -5,6 +5,7 @@
 package definitions;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -51,4 +52,9 @@ public class LoginSteps {
     public void iWaitForSeconds(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
+
+	@Given("I submit the form")
+	public void iSubmitTheForm() {
+		System.out.println("I submit the form");
+	}
 }
