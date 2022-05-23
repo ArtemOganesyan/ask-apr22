@@ -52,9 +52,4 @@ public class LoginSteps {
     public void iWaitForSeconds(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
-
-	@Given("I submit the form")
-	public void iSubmitTheForm() {
-		System.out.println("I submit the form");
-	}
 }
