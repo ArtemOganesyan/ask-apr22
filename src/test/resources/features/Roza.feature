@@ -1,0 +1,2 @@
+@newFile
+  Feature: file created.
