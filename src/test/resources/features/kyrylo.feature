@@ -1,2 +1,2 @@
 @test
-  Feature: Testing git commands
+  Feature: Testing git
