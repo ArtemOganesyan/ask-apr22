@@ -1,2 +1,2 @@
 @smoke1
-Scenario: Login as a student
+Scenario: Login as a student account
