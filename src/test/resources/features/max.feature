@@ -4,3 +4,4 @@ Feature: Blablabla
     Given
     And
     Then
+    Then
