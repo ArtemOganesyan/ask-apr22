@@ -55,4 +55,9 @@ public class LoginSteps {
     public void iTypeLogin1(String login) {
         getDriver().findElement(By.xpath("//input[@id='join_neu_email_field']")).sendKeys(login);
     }
+
+    @And("I type password {string}")
+    public void iTypePassword1(String password) {
+        getDriver().findElement(By.xpath("//input[@id='join_neu_password_field']").sendKeys(password);
+    }
 }
