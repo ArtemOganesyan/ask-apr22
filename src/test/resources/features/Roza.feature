@@ -8,7 +8,7 @@
     @smoke1
     Scenario: Login as a student
       Given I open url "http://ask-stage.portnov.com"
-      Then I type login "artem.oganesyan+s@gmail.com"
+      Then I type login "@gmail.com"
       And I type password "12345Abc"
       Then I click submit button
       And I wait for 3 seconds
