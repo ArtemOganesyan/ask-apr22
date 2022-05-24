@@ -52,8 +52,14 @@ public class LoginSteps {
         Thread.sleep(sec * 1000);
     }
 
-    @And("I wait for {int} seconds")
-    public void iWaitForSeconds(int sec) throws InterruptedException {
-        Thread.sleep(sec * 1000);
+
+    @Then("I click on {string} in the sidebar")
+    public void iClickOnInTheSidebar(String quizzes) {
+            getDriver().findElement(By.xpath("//h5[contains(text(),'Quizzes')]")).click();
+    }
+
+    @Then("I click on {string} button")
+    public void iClickOnButton(String CreateNewQuiz) {
+        getDriver().findElement(By.xpath("//span[contains(text(),'Create New Quiz')]")).click();
     }
 }
