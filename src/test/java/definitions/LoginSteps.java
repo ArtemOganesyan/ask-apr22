@@ -51,4 +51,8 @@ public class LoginSteps {
     public void iWaitForSeconds(int sec) throws InterruptedException {
         Thread.sleep(sec * 1000);
     }
+    @Then("I type login {string}")
+    public void iTypeLogin1(String login) {
+        getDriver().findElement(By.xpath("//input[@id='join_neu_email_field']")).sendKeys(login);
+    }
 }
