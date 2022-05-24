@@ -6,6 +6,7 @@ package definitions;
 
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Then;
+import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 
@@ -52,9 +53,35 @@ public class LoginSteps {
         Thread.sleep(sec * 1000);
     }
 
+    @When("I type first name {string}")
+    public void iTypeFirstName(String firstName) {
+        getDriver().findElement(By.xpath("//input[@formcontrolname=\"firstName\"]")).sendKeys(firstName);
+    }
+
+    @And("I type last name {string}")
+    public void iTypeLastName(String lastName) {
+        getDriver().findElement(By.xpath("//input[@formcontrolname=\"lastName\"]")).sendKeys(lastName);
+    }
+
+    @And("I type email {string}")
+    public void iTypeEmail(String email) {
+        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(email);
+    }
+
+    @And("I type group code {string}")
+    public void iTypeGroupCode(String groupCode) {
+        getDriver().findElement(By.xpath("//input[@formcontrolname=\"group\"]")).sendKeys(groupCode);
+    }
+
+    @And("I type confirm password {string}")
+    public void iTypeConfirmPassword(String confirmPassword) {
+        getDriver().findElement(By.xpath("//input[@formcontrolname=\"confirmPassword\"]")).sendKeys(confirmPassword);
+    }
+
     @Then("I click {string} button")
     public void iClickButton(String arg0) {getDriver().findElement(By.xpath("//h5[contains(@text(),'My Grades')]")).click();
     }
+  
 }
 
 
