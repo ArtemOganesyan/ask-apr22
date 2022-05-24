@@ -1,4 +1,4 @@
-@newFile
+@newFile.roza
   Feature: file created.
 
     @method
