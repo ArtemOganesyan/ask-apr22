@@ -65,4 +65,5 @@ public class KyryloStepdefs {
 		String expected = "List of Quizzes";
 		Assert.assertEquals(actual, expected);
 	}
+
 }
