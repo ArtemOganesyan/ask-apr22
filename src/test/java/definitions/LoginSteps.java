@@ -60,4 +60,10 @@ public class LoginSteps {
     public void iTypePassword1(String password) {
         getDriver().findElement(By.xpath("//input[@id='join_neu_password_field']").sendKeys(password);
     }
+
+    @Then("I click submit button")
+    public void iClickSubmitButton1() {
+        getDriver().findElement(By.xpath("//button[@type=\"submit\"]")).click();
+    }
+
 }
