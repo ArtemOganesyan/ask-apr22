@@ -32,9 +32,21 @@ Feature: ASK
       And I verify that quiz with name "_Quiz11-test" is present in the list
 
     @test3
-    Scenario: Techer - Delete quiz
-      Then I open url "http://ask-stage.portnov.com/#/quizzes"
-      And I wait for 3 seconds
-      And I verify that quiz with name "_Quiz11" is present in the list
-      And I click on the quiz "_Quiz11-test"
-      And I delete quiz "_Quiz11-test"
+      Scenario: Teacher - Quiz - Create At date corresponds Update At date
+        Then I open url "http://ask-stage.portnov.com/#/quizzes"
+        And I wait for 3 seconds
+        And I verify that quiz with name "_Quiz11-test" is present in the list
+        And I click on the quiz "_Quiz11-test"
+        And I verify that quiz's "_Quiz11-test" Create At date corresponds Update At date
+
+    @test4
+      Scenario: Teacher - Delete quiz
+        Then I open url "http://ask-stage.portnov.com/#/quizzes"
+        And I wait for 3 seconds
+        And I verify that quiz with name "_Quiz11-test" is present in the list
+        And I click on the quiz "_Quiz11-test"
+        And I delete quiz "_Quiz11-test"
+        And I wait for 3 seconds
+        And I confirm delete procedure
+        And I wait for 3 seconds
+        And I verify that quiz with name "_Quiz11-test" is not present in the list
