@@ -4,7 +4,7 @@ Feature: ASK
     @test1
     Scenario: Teacher - Create quiz
       Given I open url "http://ask-stage.portnov.com"
-      Then I type login "teacher-ask@mailinator.com"
+      Then I type email "teacher-ask@mailinator.com"
       And I type password "12345Abc!"
       Then I click submit button
       And I wait for 3 seconds
@@ -27,7 +27,7 @@ Feature: ASK
     @test2
     Scenario: Teacher - Verify that quiz is present in the list
       Given I open url "http://ask-stage.portnov.com"
-      Then I type login "teacher-ask@mailinator.com"
+      Then I type email "teacher-ask@mailinator.com"
       And I type password "12345Abc!"
       Then I click submit button
       And I wait for 3 seconds

@@ -5,13 +5,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
 
 public class KyryloStepdefs {
 	@And("I verify that quiz with name {string} is present in the list")
 	public void iVerifyThatQuizWithNameIsPresentInTheList(String name) {
 		int res = getDriver().findElements(By.xpath("//mat-panel-title[contains(text(), '"+name+"')]")).size();
-		System.out.println(res);
 		Assert.assertTrue(res > 0);
 	}
 
@@ -64,5 +64,44 @@ public class KyryloStepdefs {
 		String actual = getDriver().findElement(By.xpath("//h4")).getText();
 		String expected = "List of Quizzes";
 		Assert.assertEquals(actual, expected);
+	}
+
+	@Given("I open url {string}")
+	public void iOpenUrl(String url) {
+		getDriver().get(url);
+	}
+
+	@Then("I type email {string}")
+	public void iTypeLogin(String email) {
+		getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(email);
+	}
+
+	@And("I type password {string}")
+	public void iTypePassword(String password) {
+		getDriver().findElement(By.xpath("//input[@formcontrolname=\"password\"]")).sendKeys(password);
+	}
+
+	@Then("I click submit button")
+	public void iClickSubmitButton() {
+		getDriver().findElement(By.xpath("//button[@type=\"submit\"]")).click();
+	}
+
+	@And("I verify current user role set to {string}")
+	public void iVerifyCurrentUserRoleSetTo(String role) {
+		String r = getDriver().findElement(By.xpath("//div[@class=\"info\"]//p")).getText();
+		System.out.println(r);
+		if (role.equals("STUDENT")) {
+			assertThat(r).isEqualTo("STUDENT");
+		}
+		else if (role.equals("TEACHER")) {
+			assertThat(r).isEqualTo("TEACHER");
+		} else {
+			Assert.fail("User role not found");
+		}
+	}
+
+	@And("I wait for {int} seconds")
+	public void iWaitForSeconds(int sec) throws InterruptedException {
+		Thread.sleep(sec * 1000);
 	}
 }
