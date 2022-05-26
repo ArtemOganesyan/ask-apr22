@@ -39,8 +39,7 @@ public class LoginSteps {
         System.out.println(r);
         if (role.equals("STUDENT")) {
             assertThat(r).isEqualTo("STUDENT");
-        }
-        else if (role.equals("TEACHER")) {
+        } else if (role.equals("TEACHER")) {
             assertThat(r).isEqualTo("TEACHER");
         } else {
             Assert.fail("User role not found");
@@ -52,8 +51,13 @@ public class LoginSteps {
         Thread.sleep(sec * 1000);
     }
 
-    @Then("I click on {string}")
-    public void iClickOn(String arg0) {
-        getDriver().findElement(By.xpath("//h5[contains(text(),\"Settings\")]")).click();
+
+    @Then("I click {string} button")
+    public void iClickButton(String arg0) {
+        getDriver().findElement(By.xpath("//h5[contains(@text(),'My Grades')]")).click();
+
     }
 }
+
+
+
