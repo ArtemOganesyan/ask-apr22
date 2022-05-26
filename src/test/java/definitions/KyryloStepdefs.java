@@ -119,4 +119,17 @@ public class KyryloStepdefs {
 	public void kmWaitForSeconds(int sec) throws InterruptedException {
 		Thread.sleep(sec * 1000);
 	}
+
+	@And("KM edit the quiz {string}")
+	public void kmEditTheQuiz(String name) {
+		getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '"+name+"')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div //span[contains(text(), 'Edit')]")).click();
+	}
+
+	@And("KM verify that quiz's {string} Update At date different from Created At date")
+	public void kmVerifyThatQuizSUpdateAtDateDifferentFromCreatedAtDate(String name) {
+		WebElement expanded = getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '"+name+"')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div"));
+		String createdAt = expanded.findElement(By.xpath("//td[contains(text(), 'Created At:')]/following-sibling::td")).getText();
+		String updatedAt = expanded.findElement(By.xpath("//td[contains(text(), 'Updated At:')]/following-sibling::td")).getText();
+		assertThat(updatedAt).isNotEqualTo(createdAt);
+	}
 }
