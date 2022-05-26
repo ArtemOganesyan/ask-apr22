@@ -8,8 +8,8 @@
       Then I type last name "Avtunich"
       Then I type email "avtunicha+123@gmail.com"
       Then I type group code "AB-3!"
-      Then I  type password "test1"
-      Then I type confirm password "test1"
+      Then AA type password "test1"
+      Then AA type confirm password "test1"
       Then I click button Submit
       And verify that user has been registered
 
@@ -20,8 +20,8 @@
         Then I type last name "Avtunich"
         Then I type email "avtunicha+123@gmail.com"
         Then I type group code "A"
-        Then I  type password "test1"
-        Then I type confirm password "test1"
+        Then AA type password "test1"
+        Then AA type confirm password "test1"
         Then I click button Submit
         And verify that user has been registered
 
@@ -32,8 +32,8 @@
         Then I type last name "Avtunich"
         Then I type email "avtunicha+123@gmail.com"
         Then I type group code "ABC-12345!"
-        Then I  type password "test1"
-        Then I type confirm password "test1"
+        Then AA type password "test1"
+        Then AA type confirm password "test1"
         Then I click button Submit
         And verify that user has been registered
 
@@ -53,8 +53,8 @@
         Then I type last name "Avtunich"
         Then I type email "avtunicha+123@gmail.com"
         Then I leave group code input field empty
-        Then I  type password "test1"
-        Then I type confirm password "test1"
+        Then AA type password "test1"
+        Then AA type confirm password "test1"
         Then I click button Submit
         And I validation massage is appear
 
@@ -79,7 +79,7 @@
     @smoke8
     Scenario: "Single-Choice Quiz with no textual question" that quiz automatically got "Passed" status
       Given I open url "http://ask-stage.portnov.com"
-      Then I type login "avtunicha+1@gmail.com"
+      Then I type email "avtunicha+1@gmail.com"
       And I type password "NM12345"
       Then I click submit button
       And I wait for 3 seconds

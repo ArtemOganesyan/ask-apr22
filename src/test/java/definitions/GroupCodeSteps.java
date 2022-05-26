@@ -36,12 +36,12 @@ public class GroupCodeSteps {
 
     }
 
-    @Then("I  type password {string}")
+    @Then("AA type password {string}")
     public void iTypePassword(String password) {
         getDriver().findElement(By.xpath("//input[@formcontrolname='password']")).sendKeys(password);
     }
 
-    @Then("I type confirm password {string}")
+    @Then("AA type confirm password {string}")
     public void iTypeConfirmPassword(String confirmPassword) {
         getDriver().findElement(By.xpath("//input[@formcontrolname='confirmPassword']")).sendKeys(confirmPassword);
     }
