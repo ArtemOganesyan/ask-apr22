@@ -1,43 +1,29 @@
 package definitions;
 
-import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.openqa.selenium.By;
 
-import java.util.Objects;
-
-import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
 
 public class SophiaStepdefs {
-    @Given("I navigate to url {string}")
-    public void iNavigateToUrl(String arg0) {
-        getDriver().get("http://ask-stage.portnov.com/#/login");
+    @Given("I open {string}")
+    public void iOpen(String url) {
+        getDriver().get(url);
     }
 
-    @And("page with title {string} is present")
-    public void pageWithTitleIsPresent(String pageTitle) {
-        if (pageTitle.equals("Assessment Control @ Portnov")) {
-            getDriver().getTitle();
-            System.out.println("Page title : " + pageTitle);
-        } else {
-            System.out.println("title does not match");
-        }
+    @Then("I type teacherEmail {string}")
+    public void iTypeTeacherEmail(String tEmail) {
+        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(tEmail);
     }
 
-    @Then("element with xpath {string} should be present")
-    public void elementWithXpathShouldBePresent(String xpath) {
-        assertThat(getDriver().findElement(By.xpath(xpath)).isDisplayed()).isTrue();
+    @Then("I type teacherPassword {string}")
+    public void iTypeTeacherPassword(String tPassword) {
+        getDriver().findElement(By.xpath("//input[@formcontrolname=\"password\"]")).sendKeys(tPassword);
     }
 
-    @Then("I type login {string}")
-    public void iTypeLogin(String login) {
-        getDriver().findElement(By.xpath("//input[@formcontrolname='email']")).sendKeys(login);
-    }
-
-    @And("I type password {string}")
-    public void iTypePassword(String password) {
-        getDriver().findElement(By.xpath("//input[@formcontrolname='password']")).sendKeys(password);
+    @Then("I click Sign In button")
+    public void iClickSignInButton() {
+        getDriver().findElement(By.xpath("//button[@type=\"submit\"]")).click();
     }
 }
