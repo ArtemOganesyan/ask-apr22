@@ -11,14 +11,18 @@ Feature: Smoke tests
     And I verify current user role set to "TEACHER"
 
   @smoke2
-  Scenario: Create new quiz
+  Scenario: Create new quiz with Multiple-choice
     Given I open url "http://ask-stage.portnov.com"
     Then I type login "trentonio@sewce.com"
     And I type password "12345"
     Then I click submit button
     And I wait for 3 seconds
     And I verify current user role set to "TEACHER"
-    Then I click on "Quizzes" in the sidebar
+    Then I click on Quizzes in the sidebar
     And I wait for 3 seconds
-    Then I click on "Create New Quiz" button
+    Then I click on Create New Quiz button
+    And I wait for 3 seconds
+    Then I type title of the quiz "Chemistry" in the field
+    And I click on Add question button
+
 
