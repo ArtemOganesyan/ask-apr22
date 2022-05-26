@@ -59,6 +59,16 @@ public class LoginSteps {
         getDriver().findElement(By.xpath("//input[@formcontrolname=\"firstName\"]")).sendKeys(firstName);
     }
 
+    @Then("I click on {string} in the sidebar")
+    public void iClickOnInTheSidebar(String quizzes) {
+            getDriver().findElement(By.xpath("//h5[contains(text(),'Quizzes')]")).click();
+    }
+
+    @Then("I click on {string} button")
+    public void iClickOnButton(String CreateNewQuiz) {
+        getDriver().findElement(By.xpath("//span[contains(text(),'Create New Quiz')]")).click();
+    }
+
     @And("I type last name {string}")
     public void iTypeLastName(String lastName) {
         getDriver().findElement(By.xpath("//input[@formcontrolname=\"lastName\"]")).sendKeys(lastName);
