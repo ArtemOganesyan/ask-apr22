@@ -14,20 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static support.TestContext.getDriver;
 
 public class LoginSteps {
-    @cucumber.api.java.en.Given("I open url {string}")
-    public void iOpenUrl(String url) {
-        getDriver().get(url);
-    }
 
-    @Then("I type email {string}")
-    public void iTypeLogin(String email) {
-        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(email);
-    }
-
-    @And("I type password {string}")
-    public void iTypePassword(String password) {
-        getDriver().findElement(By.xpath("//input[@formcontrolname=\"password\"]")).sendKeys(password);
-    }
 
     @Then("I click submit button")
     public void iClickSubmitButton() {
