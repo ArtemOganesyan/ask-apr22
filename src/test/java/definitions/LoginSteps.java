@@ -5,6 +5,7 @@
 package definitions;
 
 import cucumber.api.java.en.And;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.openqa.selenium.By;
@@ -19,9 +20,9 @@ public class LoginSteps {
         getDriver().get(url);
     }
 
-    @Then("I type email {string}")
-    public void iTypeLogin(String email) {
-        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(email);
+    @Then("I type login {string}")
+    public void iTypeLogin(String login) {
+        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(login);
     }
 
     @And("I type password {string}")
@@ -58,6 +59,16 @@ public class LoginSteps {
         getDriver().findElement(By.xpath("//input[@formcontrolname=\"firstName\"]")).sendKeys(firstName);
     }
 
+    @Then("I click on {string} in the sidebar")
+    public void iClickOnInTheSidebar(String quizzes) {
+            getDriver().findElement(By.xpath("//h5[contains(text(),'Quizzes')]")).click();
+    }
+
+    @Then("I click on {string} button")
+    public void iClickOnButton(String CreateNewQuiz) {
+        getDriver().findElement(By.xpath("//span[contains(text(),'Create New Quiz')]")).click();
+    }
+
     @And("I type last name {string}")
     public void iTypeLastName(String lastName) {
         getDriver().findElement(By.xpath("//input[@formcontrolname=\"lastName\"]")).sendKeys(lastName);
@@ -82,4 +93,5 @@ public class LoginSteps {
     public void iClickButton(String arg0) {
       getDriver().findElement(By.xpath("//h5[contains(@text(),'My Grades')]")).click();
     }
+
 }
