@@ -3,16 +3,16 @@
 
     @smokeVH1
     Scenario: Verify that Alphanumeric and special characters are accepted in Email input field
-      Given I open url "http://ask-stage.portnov.com/#/registration"
-      When I type first name "L"
-      And I type last name "June"
-      And I type email "testingT1'a@domain.com"
-      And I type group code "APR18"
-      Then I type password "12345A"
-      And I type confirm password "12345A"
-      Then I click submit button
-      And I wait for 3 seconds
-      Then page should contain text "You have been registered"
+      Given VH open url "http://ask-stage.portnov.com/#/registration"
+      When VH type first name "L"
+      And VH type last name "June"
+      And VH type email "testingT1'a@domain.com"
+      And VH type group code "APR18"
+      Then VH type password "12345A"
+      And VH type confirm password "12345A"
+      Then VH click submit button
+      And VH wait for 3 seconds
+      Then VH page should contain text "You have been registered"
 
     @smokeVH2
         #clicking on submit without enabling email input field
