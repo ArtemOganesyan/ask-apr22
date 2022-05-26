@@ -11,7 +11,7 @@ import static support.TestContext.getDriver;
 public class KyryloStepdefs {
 	@And("I verify that quiz with name {string} is present in the list")
 	public void iVerifyThatQuizWithNameIsPresentInTheList(String name) {
-		int res = getDriver().findElements(By.xpath("//mat-panel-title[contains(text(), '"+name+"')]")).size();
+		int res = getDriver().findElements(By.xpath("//mat-panel-title[contains(text(), '" + name + "')]")).size();
 		Assert.assertTrue(res > 0);
 	}
 
@@ -32,12 +32,12 @@ public class KyryloStepdefs {
 
 	@And("I select question type {string} in the question section {int}")
 	public void iSelectQuestionTypeInTheQuestionSection(String type, int section) {
-		getDriver().findElement(By.xpath("(//mat-expansion-panel-header)["+section+"]/following-sibling::div //div[contains(text(), '" + type + "')]")).click();
+		getDriver().findElement(By.xpath("(//mat-expansion-panel-header)[" + section + "]/following-sibling::div //div[contains(text(), '" + type + "')]")).click();
 	}
 
 	@And("I mark option number {int} as correct answer in question section {int}")
 	public void iMarkOptionNumberAsCorrectAnswerInQuestionSection(int nb, int section) {
-		getDriver().findElement(By.xpath("((//mat-expansion-panel-header)["+section+"]/following-sibling::div //mat-radio-button)["+ (3 + nb) +"]")).click();
+		getDriver().findElement(By.xpath("((//mat-expansion-panel-header)[" + section + "]/following-sibling::div //mat-radio-button)[" + (3 + nb) + "]")).click();
 	}
 
 	@And("I save the quiz")
@@ -47,14 +47,14 @@ public class KyryloStepdefs {
 
 	@And("I add {string} to the field {string} into question section {int}")
 	public void iAddToTheFieldIntoQuestionSection(String text, String str, int section) {
-		WebElement elem = getDriver().findElement(By.xpath("(//mat-expansion-panel-header)["+section+"]/following-sibling::div //textarea[@placeholder='"+str+"']"));
+		WebElement elem = getDriver().findElement(By.xpath("(//mat-expansion-panel-header)[" + section + "]/following-sibling::div //textarea[@placeholder='" + str + "']"));
 		elem.click();
 		elem.sendKeys(text);
 	}
 
 	@And("I type {string} to question title into question section {int}")
 	public void iTypeToQuestionTitleIntoQuestionSection(String text, int section) {
-		WebElement elem = getDriver().findElement(By.xpath("(//mat-expansion-panel-header)["+section+"]/following-sibling::div //textarea[@formcontrolname='question']"));
+		WebElement elem = getDriver().findElement(By.xpath("(//mat-expansion-panel-header)[" + section + "]/following-sibling::div //textarea[@formcontrolname='question']"));
 		elem.click();
 		elem.sendKeys(text);
 	}
@@ -92,8 +92,7 @@ public class KyryloStepdefs {
 		System.out.println(r);
 		if (role.equals("STUDENT")) {
 			assertThat(r).isEqualTo("STUDENT");
-		}
-		else if (role.equals("TEACHER")) {
+		} else if (role.equals("TEACHER")) {
 			assertThat(r).isEqualTo("TEACHER");
 		} else {
 			Assert.fail("User role not found");
@@ -103,5 +102,15 @@ public class KyryloStepdefs {
 	@And("I wait for {int} seconds")
 	public void iWaitForSeconds(int sec) throws InterruptedException {
 		Thread.sleep(sec * 1000);
+	}
+
+	@And("I click on the quiz {string}")
+	public void iClickOnTheQuiz(String name) {
+		getDriver().findElement(By.xpath("//mat-panel-title[contains(text(), '" + name + "')]")).click();
+	}
+
+	@And("I delete quiz {string}")
+	public void iDeleteQuiz(String name) {
+		getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '"+name+"')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div //span[contains(text(), 'Delete')]")).click();
 	}
 }
