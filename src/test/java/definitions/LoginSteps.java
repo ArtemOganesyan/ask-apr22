@@ -20,9 +20,9 @@ public class LoginSteps {
         getDriver().get(url);
     }
 
-    @Then("I type email {string}")
-    public void iTypeLogin(String email) {
-        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(email);
+    @Then("I type login {string}")
+    public void iTypeLogin(String login) {
+        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(login);
     }
 
     @And("I type password {string}")
