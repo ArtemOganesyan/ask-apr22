@@ -12,7 +12,7 @@ public class KyryloStepdefs {
 	@And("I verify that quiz with name {string} is present in the list")
 	public void iVerifyThatQuizWithNameIsPresentInTheList(String name) {
 		int res = getDriver().findElements(By.xpath("//mat-panel-title[contains(text(), '" + name + "')]")).size();
-		Assert.assertTrue(res > 0);
+		assertThat(res).isGreaterThan(0);
 	}
 
 	@Then("I click create new quiz button")
@@ -112,5 +112,24 @@ public class KyryloStepdefs {
 	@And("I delete quiz {string}")
 	public void iDeleteQuiz(String name) {
 		getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '"+name+"')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div //span[contains(text(), 'Delete')]")).click();
+	}
+
+	@And("I verify that quiz's {string} Create At date corresponds Update At date")
+	public void iVerifyThatQuizSCreateAtDateCorrespondsUpdateAtDate(String name) {
+		WebElement expanded = getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '"+name+"')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div"));
+		String createdAt = expanded.findElement(By.xpath("//td[contains(text(), 'Created At:')]/following-sibling::td")).getText();
+		String updatedAt = expanded.findElement(By.xpath("//td[contains(text(), 'Updated At:')]/following-sibling::td")).getText();
+		assertThat(createdAt).isEqualTo(updatedAt);
+	}
+
+	@And("I verify that quiz with name {string} is not present in the list")
+	public void iVerifyThatQuizWithNameIsNotPresentInTheList(String name) {
+		int res = getDriver().findElements(By.xpath("//mat-panel-title[contains(text(), '" + name + "')]")).size();
+		assertThat(res).isLessThan(1);
+	}
+
+	@And("I confirm delete procedure")
+	public void iConfirmDeleteProcedure() {
+		getDriver().findElement(By.xpath("//ac-modal-confirmation //span[contains(text(), 'Delete')]")).click();
 	}
 }
