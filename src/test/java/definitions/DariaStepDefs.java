@@ -71,6 +71,11 @@ public class DariaStepDefs {
     public void ddClickDetailsButton() {
         getDriver().findElement(By.xpath("//button[@class='mat-raised-button mat-primary']")).click();
     }
+
+    @And("DD click Close button")
+    public void ddClickCloseButton() {
+        getDriver().findElement(By.xpath("//button[@class='mat-raised-button mat-primary']")).click();
+    }
 }
 
 
