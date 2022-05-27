@@ -54,4 +54,31 @@ public class DariaStepDefs {
     public void ddClickMyGradeButton() {
         getDriver().findElement(By.xpath("//h5[contains(text(),'My Grades')]")).click();
     }
+
+    @And("DD verify that graded quiz is displayed")
+    public void ddVerifyThatGradedQuizIsDisplayed() {
+        getDriver().findElements(By.xpath("//span[contains(text(),'Details')]"));
+    }
+
+
+
+    @Then("DD see the page with grades details")
+    public void ddSeeThePageWithGradesDetails() {
+        getDriver().findElements(By.xpath("//mat-card[@class='header mat-card']"));
+    }
+
+    @And("DD click Details button")
+    public void ddClickDetailsButton() {
+        getDriver().findElement(By.xpath("//button[@class='mat-raised-button mat-primary']")).click();
+    }
+
+    @And("DD click Close button")
+    public void ddClickCloseButton() {
+        getDriver().findElement(By.xpath("//button[@class='mat-raised-button mat-primary']")).click();
+    }
 }
+
+
+
+
+
