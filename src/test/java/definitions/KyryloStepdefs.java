@@ -73,12 +73,12 @@ public class KyryloStepdefs {
 
 	@And("KM delete quiz {string}")
 	public void kmDeleteQuiz(String name) {
-		getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '"+name+"')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div //span[contains(text(), 'Delete')]")).click();
+		getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '" + name + "')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div //span[contains(text(), 'Delete')]")).click();
 	}
 
 	@And("KM verify that quiz's {string} Create At date corresponds Update At date")
 	public void kmVerifyThatQuizSCreateAtDateCorrespondsUpdateAtDate(String name) {
-		WebElement expanded = getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '"+name+"')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div"));
+		WebElement expanded = getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '" + name + "')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div"));
 		String createdAt = expanded.findElement(By.xpath("//td[contains(text(), 'Created At:')]/following-sibling::td")).getText();
 		String updatedAt = expanded.findElement(By.xpath("//td[contains(text(), 'Updated At:')]/following-sibling::td")).getText();
 		assertThat(createdAt).isEqualTo(updatedAt);
@@ -120,16 +120,20 @@ public class KyryloStepdefs {
 		Thread.sleep(sec * 1000);
 	}
 
-	@And("KM edit the quiz {string}")
-	public void kmEditTheQuiz(String name) {
-		getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '"+name+"')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div //span[contains(text(), 'Edit')]")).click();
+	@Given("test xpath")
+	public void testXpath() {
+		getDriver().findElement(By.xpath("//h5[contains(text(), 'Quizzes123')]")).click();
 	}
 
-	@And("KM verify that quiz's {string} Update At date different from Created At date")
-	public void kmVerifyThatQuizSUpdateAtDateDifferentFromCreatedAtDate(String name) {
-		WebElement expanded = getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '"+name+"')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div"));
-		String createdAt = expanded.findElement(By.xpath("//td[contains(text(), 'Created At:')]/following-sibling::td")).getText();
-		String updatedAt = expanded.findElement(By.xpath("//td[contains(text(), 'Updated At:')]/following-sibling::td")).getText();
+	@And("KM edit quiz {string}")
+	public void kmEditQuiz(String name) {
+		getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '" + name + "')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div //span[contains(text(), 'Edit')]")).click();
+	}
+
+	@And("KM verify that quiz's {string} Updated At different from Crated At date")
+	public void kmVerifyThatQuizSUpdatedAtDifferentFromCratedAtDate(String name) {
+		String createdAt = getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '" + name + "')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div //td[contains(text(), 'Created At:')]/following-sibling::td")).getText();
+		String updatedAt = getDriver().findElement(By.xpath("//mat-expansion-panel-header //mat-panel-title[contains(text(), '" + name + "')]/parent::span/parent::mat-expansion-panel-header/following-sibling::div //td[contains(text(), 'Updated At:')]/following-sibling::td")).getText();
 		assertThat(updatedAt).isNotEqualTo(createdAt);
 	}
 }
