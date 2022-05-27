@@ -6,6 +6,7 @@
       Then MB type email "monmita.bora+1@gmail.com"
       Then MB type password "12345Abc"
       And MB click submit button
+      Then MB wait for 30 sec
       Then MB verify successful login
     @smoke2
     Scenario: Copy option is disabled

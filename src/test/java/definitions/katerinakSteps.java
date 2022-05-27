@@ -89,7 +89,7 @@ public class katerinakSteps {
 
     @And("I KK wait for {int} seconds")
     public void iKKWaitForSeconds(int sec) throws InterruptedException {
-        Thread.sleep(1000);
+        Thread.sleep(sec * 1000);
     }
 
     @And("I KK verify the Change button is disabled")
@@ -99,7 +99,7 @@ public class katerinakSteps {
 
     @Then("I KK click on cancel button")
     public void iKKClickOnCancelButton() {
-        getDriver().findElement(By.xpath("//span[contains(text(),'\"Cancel\")]")).click();
+        getDriver().findElement(By.xpath("//span[contains(text(),\"Cancel\")]")).click();
     }
 
     @Then("I KK verify that page goes back to home screen and see role as {string}")
