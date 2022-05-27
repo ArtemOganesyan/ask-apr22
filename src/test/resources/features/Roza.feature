@@ -2,7 +2,6 @@
   Feature: file created.
 
     @smoke1
-<<<<<<< HEAD
     Scenario: Login as student
       Given I R open url "http://ask-stage.portnov.com"
       Then I R type login "raberha+3@gmail.com"

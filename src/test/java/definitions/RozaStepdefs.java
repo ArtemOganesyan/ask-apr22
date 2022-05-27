@@ -32,7 +32,7 @@ public class RozaStepdefs {
 
     @And("I R wait for {int} seconds")
     public void iRWaitForSeconds(int sec) throws InterruptedException {
-        Thread.sleep(sec * 2000);
+        Thread.sleep(sec * 2);
 
     }
 
@@ -45,7 +45,7 @@ public class RozaStepdefs {
         else if (role.equals("TEACHER")) {
             assertThat(r).isEqualTo("TEACHER");
         } else {
-            Assert.fail("User role not found");
+            Assert.fail("no User role ");
         }
 
     }
