@@ -8,6 +8,7 @@
       And I KK type password as "12345"
       And I KK wait for 1 seconds
       And I KK click on Sign in
+      And I KK wait for 2 seconds
       Then I KK click on Settings
       Then I KK click on button Change Your Password
       Then I KK type old password "12345"
@@ -22,10 +23,12 @@
         And I KK type password as "12345"
         And I KK wait for 1 seconds
         And I KK click on Sign in
+        And I KK wait for 2 seconds
         Then I KK click on Settings 
         Then I KK click on button Change Your Password
         Then I KK type new password "123456"
         Then I KK confirm new password "123456"
+        And I KK wait for 1 seconds
         And I KK verify that error message is displayed "This field is required"
         And I KK verify the Change button is disabled
 
@@ -36,10 +39,12 @@
         And I KK type password as "12345"
         And I KK wait for 1 seconds
         And I KK click on Sign in
+        And I KK wait for 2 seconds
         Then I KK click on Settings
         Then I KK click on button Change Your Password
         Then I KK type old password "12345"
         And I KK confirm new password "123456"
+        And I KK wait for 10 seconds
         And I KK verify that error message is displayed "This field is required"
         And I KK verify the Change button is disabled
 
@@ -50,6 +55,7 @@
         And I KK type password as "12345"
         And I KK wait for 1 seconds
         And I KK click on Sign in
+        And I KK wait for 2 seconds
         Then I KK click on Settings
         Then I KK click on button Change Your Password
         Then I KK type old password "12345"
@@ -64,6 +70,7 @@
         And I KK type password as "12345"
         And I KK wait for 1 seconds
         And I KK click on Sign in
+        And I KK wait for 2 seconds
         Then I KK click on Settings
         Then I KK click on button Change Your Password
         Then I KK click on cancel button
@@ -76,6 +83,7 @@
         And I KK type password as "12345"
         And I KK wait for 1 seconds
         And I KK click on Sign in
+        And I KK wait for 2 seconds
         Then I KK click on Settings
         Then I KK click on button Change Your Password
         Then I KK type old password "12345"
@@ -91,6 +99,7 @@
         And I KK type password as "12345"
         And I KK wait for 1 seconds
         And I KK click on Sign in
+        And I KK wait for 2 seconds
         Then I KK click on Settings
         Then I KK click on button Change Your Password
         Then I KK type old password "12345"
@@ -106,6 +115,7 @@
         And I KK type password as "12345"
         And I KK wait for 1 seconds
         And I KK click on Sign in
+        And I KK wait for 2 seconds
         Then I KK click on Settings
         Then I KK click on button Change Your Password
         Then I KK type old password "12345"
@@ -121,6 +131,7 @@
         And I KK type password as "12345"
         And I KK wait for 1 seconds
         And I KK click on Sign in
+        And I KK wait for 2 seconds
         Then I KK click on Settings
         Then I KK click on button Change Your Password
         Then I KK type old password "12345"
@@ -136,6 +147,7 @@
           And I KK type password as "12345"
           And I KK wait for 1 seconds
           And I KK click on Sign in
+          And I KK wait for 2 seconds
           Then I KK click on Settings
           Then I KK click on button Change Your Password
           Then I KK type old password "123abc"
@@ -151,6 +163,7 @@
           And I KK type password as "12345"
           And I KK wait for 1 seconds
           And I KK click on Sign in
+          And I KK wait for 2 seconds
           Then I KK click on Settings
           Then I KK click on button Change Your Password
           Then I KK type old password "12345"
@@ -165,6 +178,7 @@
           And I KK type password as "12345"
           And I KK wait for 1 seconds
           And I KK click on Sign in
+          And I KK wait for 2 seconds
           Then I KK click on Settings
           Then I KK click on button Change Your Password
           Then I KK type old password "12345"

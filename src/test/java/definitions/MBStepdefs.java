@@ -116,6 +116,11 @@ public class MBStepdefs {
             Assertions.assertThat(Cut).isEqualTo("FAIL");
         }
     }
+
+    @Then("MB wait for {int} sec")
+    public void mbWaitForSec(int sec) throws InterruptedException {
+        Thread.sleep(sec * 1000);
+    }
 }
 
 

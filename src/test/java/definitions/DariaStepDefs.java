@@ -3,6 +3,7 @@ package definitions;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
+import org.apache.xpath.operations.Bool;
 import org.openqa.selenium.By;
 import org.testng.Assert;
 

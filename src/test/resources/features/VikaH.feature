@@ -29,6 +29,7 @@
       Then VH error message about Empty field should be displayed
       And VH verify that user couldn't register if error message "This field is required" is displayed
 
+
     @smokeVH3
     Scenario: Verify that Email input field accepts local port with 64 characters on the left of an @ domain on the right with 63 characters followed by (.)  with 63 characters in last part of domain
       Given VH open url "http://ask-stage.portnov.com/#/registration"
@@ -42,7 +43,7 @@
       And VH wait for 1 seconds
       Then VH should see confirmation of successful registering
 
-
+      #Negative testing, bug found
     @smokeVH4
     Scenario:Verify that Email with more than 128 characters is not accepted in the input field
       Given VH open url "http://ask-stage.portnov.com/#/registration"
@@ -308,7 +309,7 @@
       And VH type password "test123"
       And VH click Sign In button
       Then VH homepage should be displayed
-      And VH wait for 1 seconds
+      And VH wait for 3 seconds
       And VH homepage should contain role "TEACHER"
       When VH click submissions button
       Then VH see submission page

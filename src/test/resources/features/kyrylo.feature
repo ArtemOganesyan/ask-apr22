@@ -49,6 +49,7 @@ Feature: ASK
       And KM wait for 2 seconds
       And KM click add question
       And KM select question type "Single-Choice" in the question section 2
+      And KM wait for 2 seconds
       And KM type "Test2" to question title into question section 2
       And KM wait for 3 seconds
       And KM mark option number 2 as correct answer in question section 2
