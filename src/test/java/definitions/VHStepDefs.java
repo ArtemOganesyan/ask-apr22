@@ -276,4 +276,9 @@ public class VHStepDefs {
     public void vhClickOnSaveButtonToGrade() {
         getDriver().findElement(By.xpath("//button[@type=\"submit\"]")).click();
     }
+
+    @And("VH wait for {int} seconds")
+    public void vhWaitForSeconds(int sec) throws InterruptedException {
+        Thread.sleep(sec * 1000);
+    }
 }

@@ -55,9 +55,9 @@
       And VH type confirm password "12345A"
       When VH click register button
       Then VH error message "Too long. Should be no more than 128 characters" should be displayed
+#Negative testing, bug found
 
     @smokeVH5
-      #doesnt work at all
     Scenario: Verify that email input field doesn't accept white spaces
       Given VH open url "http://ask-stage.portnov.com/#/registration"
       When VH type first name "L"
@@ -140,6 +140,9 @@
         And VH should see error message about Invalid email
         Then VH error message that "Should be a valid email address" should be displayed
 
+
+
+        #test set 2
         #Teacher, settings-full name
       @smokeVH11
       Scenario:Verify that teacher can change its Full Name with Alphanumeric and Special Characters
@@ -186,15 +189,17 @@
         And VH type password "test123"
         And VH click Sign In button
         Then VH homepage should be displayed
+        And VH wait for 3 seconds
         And VH homepage should contain role "TEACHER"
         When VH click on Settings button
         Then VH settings page should be displayed
         And VH click on Change Name button
         Then VH remove existing name from the New Name field
+        And VH wait for 3 seconds
         When VH type "12Abc17463524bdgvDFGcfbjbjnkankf*)!@njdmdbwfhwbfhbwhbfhwbfhwbfhwbfhwxagxavvxhdavdhqvqqjdlqjdlqdvisiysvgnwdgwgwgjHKAKNXBvshMSBFKENEKNGLDK43527614 h$@BFJEFVBFWHFWJHFWHKHFHWKFHKWHFKWhcfhwsvfwjfjwbfjbwkhgfriwyrifjjfbbbbftowtotuo3wuto3whtwl1234jfbjwbfwbfkwfbk6f" into New Name input field
         And VH click Change button
       Then VH should see new name as "12Abc17463524bdgvDFGchfbjbjnkankf*)!@njdmdbwfhwbfhbwhbfhwbfhwbfhwbfhwxagxavvxhdavdhqvqqjdlqjdlqdvisiysvgnwdgwgwgjHKAKNXBvshMSBFKENEKNGLDK43527614 h$@BFJEFVBFWHFWJHFWHKHFHWKFHKWHFKWhcfhwsvfwjfjwbfjbwkhgfriwyrifjjfbbbbftowtotuo3wuto3whtwl1234jfbjwbfwbfkwfbk6f"
-     #bug found. It should accept 256 characters according to requrements
+     #bug found. It should accept 256 characters according to requirements
 
     @smokeVH14
     Scenario: Verify that when changing Full Name, New Name input field should not accept 257 characters including 1 space between two words (max+1)
@@ -309,9 +314,9 @@
       When VH click submissions button
       Then VH see submission page
       Then VH click on Automatically Graded button
-      And VH wait for 1 seconds
+      And VH wait for 2 seconds
       Then VH should see Automatically Graded page result
-      And VH wait for 1 seconds
+      And VH wait for 2 seconds
       And VH click on Review button to grade quiz
       Then VH see opened quiz page
       And VH click on Save button to grade
