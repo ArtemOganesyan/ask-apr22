@@ -46,6 +46,7 @@ public class ObSteps {
         } else {
             Assert.fail("User role not found");
         }
+    }
 
     @Then("OB type quiz title {string}")
     public void obTypeQuizTitle(String quizTitle) {
