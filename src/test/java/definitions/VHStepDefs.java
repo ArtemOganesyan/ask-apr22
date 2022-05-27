@@ -165,10 +165,7 @@ public class VHStepDefs {
         getDriver().findElement(By.xpath("//mat-error[contains(text(), 'This field is required')]"));
     }
 
-    @And("VH wait for {int} seconds")
-    public void vhWaitForSeconds(int sec) {
-        assertThat(sec * 1000);
-    }
+
 
     @Then("VH should not see confirmation of successful registering")
     public void vhShouldNotSeeConfirmationOfSuccessfulRegistering() {
@@ -274,5 +271,10 @@ public class VHStepDefs {
     @And("VH click on Save button to grade")
     public void vhClickOnSaveButtonToGrade() {
         getDriver().findElement(By.xpath("//button[@type=\"submit\"]")).click();
+    }
+
+    @And("VH wait for {int} seconds")
+    public void vhWaitForSeconds(int sec) throws InterruptedException {
+        Thread.sleep(sec * 1000);
     }
 }
