@@ -51,7 +51,7 @@ public class RozaStepdefs {
     }
 
     @Then("I R click my grades button")
-    public void iRClickMyGradesButton() { getDriver().findElement(By.xpath("//button[@type=\"mygrade\"]")).click();
+    public void iRClickMyGradesButton() { getDriver().findElement(By.xpath("[contains(text(),'My Grades')")).click();
 
     }
 }
