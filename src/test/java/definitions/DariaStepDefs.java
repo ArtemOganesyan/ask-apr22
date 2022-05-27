@@ -54,4 +54,14 @@ public class DariaStepDefs {
     public void ddClickMyGradeButton() {
         getDriver().findElement(By.xpath("//h5[contains(text(),'My Grades')]")).click();
     }
+
+    @And("DD verify that graded quiz is displayed")
+    public void ddVerifyThatGradedQuizIsDisplayed() {
+        getDriver().findElements(By.xpath("//span[contains(text(),'Details')]"));
+    }
 }
+
+
+
+
+
