@@ -12,12 +12,12 @@ import static support.TestContext.getDriver;
 public class ObSteps {
     @Given("OB open url {string}")
     public void obOpenUrl(String url) {
-        getDriver(). get(url);
+        getDriver().get(url);
     }
 
     @Then("OB type login {string}")
     public void obTypeLogin(String Login) {
-        getDriver(). findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(Login);
+        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(Login);
     }
 
     @And("OB type password {string}")
@@ -32,7 +32,7 @@ public class ObSteps {
 
     @And("OB wait for {int} seconds")
     public void obWaitForSeconds(int sec) throws InterruptedException {
-        Thread.sleep(sec);
+        Thread.sleep(1000);
     }
 
     @And("OB verify current user role set to {string}")
@@ -41,11 +41,11 @@ public class ObSteps {
         System.out.println(r);
         if (role.equals("STUDENT")) {
             assertThat(r).isEqualTo("STUDENT");
-        }
-        else if (role.equals("TEACHER")) {
+        } else if (role.equals("TEACHER")) {
             assertThat(r).isEqualTo("TEACHER");
+        } else {
+            Assert.fail("User role not found");
         }
-    }
 
     @Then("OB type quiz title {string}")
     public void obTypeQuizTitle(String quizTitle) {
