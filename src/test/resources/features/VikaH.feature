@@ -166,6 +166,7 @@
         And VH type password "test123"
         And VH click Sign In button
         Then VH homepage should be displayed
+        And VH wait for 2 seconds
         And VH homepage should contain role "TEACHER"
         When VH click on Settings button
         Then VH settings page should be displayed
@@ -243,7 +244,7 @@
       When VH type "B " into New Name input field
       And VH click Change button
       And VH error message that name is too short should be displayed
-      #last step should be fail because message is not correct
+      #last step should be fail because message is not correct not corresponding to the case
     @smokeVH17
     Scenario: Verify that Full Name input field should not accept only 1 character
       Given VH open url "http://ask-stage.portnov.com"
@@ -275,13 +276,11 @@
       And VH click on Change Name button
       Then VH remove existing name from the New Name field
       When VH type "  Jul Vyl  " into New Name input field
-      And VH should see error message that white spaces are not allowed
-      Then VH Change name button should be disabled
-     #how to represent disabled element(button)
+      And VH should see error message that "White spaces are not allowed"
+      Then VH verify that Change name button should be disabled
 
     @smokeVH19
      Scenario: Verify that white spaces are not allowed while changing Full Name to the New Full Name
-    Scenario: Verify that trailing and leading spaces when changing Full Name, in the New Name input field are not allowed
       Given VH open url "http://ask-stage.portnov.com"
       When VH type email "holovatiuk.victoria+3@gmail.com"
       And VH type password "test123"
@@ -293,25 +292,51 @@
       And VH click on Change Name button
       Then VH remove existing name from the New Name field
       When VH type "      " into New Name input field
-      And VH should see error message that white spaces are not allowed
-      Then VH Change name button should be disabled
+      And VH should see error message that "White spaces are not allowed"
+      Then VH verify that Change name button should be disabled
 
 
 
     @smokeVH20
-      Scenario: Verify, that automatically graded quiz is redirected to "Reviewed" column after reviewing and clicking "Save" button
-        Given VH open url "http://ask-stage.portnov.com"
-        When VH type email "holovatiuk.victoria+3@gmail.com"
-        And VH type password "test123"
-        And VH click Sign In button
-        Then VH homepage should be displayed
-        And VH homepage should contain role "TEACHER"
-        When VH click submissions button
-        Then VH see submission page
-        Then VH click on Automatically Graded button
-        Then VH should see Automatically Graded page result
-        And VH click on Reviewed button
-        Then VH Reviewed page should be displayed
+    Scenario: Verify, that automatically graded quiz is redirected to "Reviewed" column after reviewing and clicking "Save" button
+      Given VH open url "http://ask-stage.portnov.com"
+      When VH type email "holovatiuk.victoria+3@gmail.com"
+      And VH type password "test123"
+      And VH click Sign In button
+      Then VH homepage should be displayed
+      And VH wait for 1 seconds
+      And VH homepage should contain role "TEACHER"
+      When VH click submissions button
+      Then VH see submission page
+      Then VH click on Automatically Graded button
+      And VH wait for 1 seconds
+      Then VH should see Automatically Graded page result
+      And VH wait for 1 seconds
+      And VH click on Review button to grade quiz
+      Then VH see opened quiz page
+      And VH click on Save button to grade
+      #now I need to verify that quiz was moved from automatically graded to reviewed
+      Then VH should see that quiz in the Reviewed tab
+
+
+    @smokeVH21
+    Scenario:Verify that teacher can review already graded quiz (quiz which is located under "Reviewed" column)
+      Given VH open url "http://ask-stage.portnov.com"
+      When VH type email "holovatiuk.victoria+3@gmail.com"
+      And VH type password "test123"
+      And VH click Sign In button
+      Then VH homepage should be displayed
+      And VH homepage should contain role "TEACHER"
+      When VH click submissions button
+      Then VH see submission page
+      Then VH click on Automatically Graded button
+      Then VH should see Automatically Graded page result
+      And VH click on Reviewed button
+      Then VH Reviewed page should be displayed
       Then VH click on review button to review graded quiz
+      Then VH see opened quiz page
+
+
+
 
 

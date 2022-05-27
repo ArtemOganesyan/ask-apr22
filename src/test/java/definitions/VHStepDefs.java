@@ -34,10 +34,9 @@ public class VHStepDefs {
     public void homepageShouldContainRole(String role) {
         String t = getDriver().findElement(By.xpath("//div[@class=\"info\"]//p")).getText();
         System.out.println(t);
-        if (role.equals("TEACHER")){
+        if (role.equals("TEACHER")) {
             assertThat(t).isEqualTo("TEACHER");
-        }
-        else if (role.equals("STUDENT")){
+        } else if (role.equals("STUDENT")) {
             assertThat(t).isEqualTo("STUDENT");
         } else {
             Assert.fail("User role not found");
@@ -180,7 +179,7 @@ public class VHStepDefs {
     @And("VH verify that user couldn't register if error message {string} is displayed")
     public void vhVerifyThatUserCouldnTRegisterIfErrorMessageIsDisplayed(String errorMessage) {
         String message = getDriver().findElement(By.xpath("//mat-error[contains(text(), 'This field is required')]")).getText();
-        if(errorMessage.equals("This field is required")) {
+        if (errorMessage.equals("This field is required")) {
             assertThat(message).isEqualTo("This field is required");
         } else {
             Assert.fail("User is registered");
@@ -190,7 +189,7 @@ public class VHStepDefs {
     @Then("VH error message {string} should be displayed")
     public void vhErrorMessageShouldBeDisplayed(String errorMessage) {
         String message = getDriver().findElement(By.xpath("//mat-error[@class=\"mat-error ng-star-inserted\"]")).getText();
-        if(errorMessage.equals("Too long. Should be no more than 128 characters")) {
+        if (errorMessage.equals("Too long. Should be no more than 128 characters")) {
             assertThat(message).isEqualTo("Too long. Should be no more than 128 characters");
         } else {
             Assert.fail("User is registered");
@@ -219,7 +218,7 @@ public class VHStepDefs {
 
     @Then("VH verify that Change name button should be disabled")
     public void vhVerifyThatChangeNameButtonShouldBeDisabled() {
-        assertThat(getDriver().findElement(By.xpath("//button[@type='button']/span[contains(text(),'Change')]")).isEnabled()).isFalse();
+        assertThat(getDriver().findElement(By.xpath("//button[@class=\"mat-raised-button mat-primary\"and(@type='button')]")).isEnabled()).isFalse();
     }
 
     @And("VH click around change name panel")
@@ -245,5 +244,35 @@ public class VHStepDefs {
         } else {
             Assert.fail("Fail change name");
         }
+    }
+
+    @And("VH should see error message that {string}")
+    public void vhShouldSeeErrorMessageThatAreNotAllowed(String erMessage) {
+        String message = getDriver().findElement(By.xpath("//mat-error[@class=\"mat-error ng-star-inserted\"]")).getText();
+        if (erMessage.equals("White spaces are not allowed")) {
+            assertThat(erMessage).isEqualTo("White spaces are not allowed");
+        } else {
+            Assert.fail("Name change should fail");
+        }
+    }
+
+    @Then("VH click on review button to review graded quiz")
+    public void vhClickOnReviewButtonToReviewGradedQuiz() {
+        getDriver().findElement(By.xpath("//td[contains(text(), 'actual point')]/following-sibling::td[3]//span[contains(text(), 'Review')]")).click();
+    }
+
+    @And("VH click on Review button to grade quiz")
+    public void vhClickOnReviewButtonToGradeQuiz() {
+        getDriver().findElement(By.xpath("//td[contains(text(), 'HTML')]/following-sibling::td[3]//span[contains(text(), 'Review')]")).click();
+    }
+
+    @Then("VH see opened quiz page")
+    public void vhSeeOpenedQuizPage() {
+        getDriver().findElement(By.xpath("//ac-grade-form[@class=\"ng-star-inserted\"]"));
+    }
+
+    @And("VH click on Save button to grade")
+    public void vhClickOnSaveButtonToGrade() {
+        getDriver().findElement(By.xpath("//button[@type=\"submit\"]")).click();
     }
 }
