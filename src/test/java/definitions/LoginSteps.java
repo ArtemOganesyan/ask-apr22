@@ -20,15 +20,15 @@ public class LoginSteps {
         getDriver().get(url);
     }
 
-    @Then("I type email {string}")
-    public void iTypeLogin(String email) {
-        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(email);
-    }
+//    @Then("I type email {string}")
+//    public void iTypeLogin(String email) {
+//        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(email);
+//    }
 
-    @And("I type password {string}")
-    public void iTypePassword(String password) {
-        getDriver().findElement(By.xpath("//input[@formcontrolname=\"password\"]")).sendKeys(password);
-    }
+//    @And("I type password {string}")
+//    public void iTypePassword(String password) {
+//        getDriver().findElement(By.xpath("//input[@formcontrolname=\"password\"]")).sendKeys(password);
+//    }
 
     @Then("I click submit button")
     public void iClickSubmitButton() {
@@ -64,10 +64,10 @@ public class LoginSteps {
         getDriver().findElement(By.xpath("//input[@formcontrolname=\"lastName\"]")).sendKeys(lastName);
     }
 
-    @And("I type email {string}")
-    public void iTypeEmail(String email) {
-        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(email);
-    }
+//    @And("I type email {string}")
+//    public void iTypeEmail(String email) {
+//        getDriver().findElement(By.xpath("//input[@formcontrolname=\"email\"]")).sendKeys(email);
+//    }
 
     @And("I type group code {string}")
     public void iTypeGroupCode(String groupCode) {
