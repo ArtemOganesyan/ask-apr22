@@ -1,10 +1,22 @@
-@step test
-  Feature: Login steps
+@step
+  Feature:ASK
+
     @step1
-    Scenario: Login as a student
-      Given I open url "http://ask-stage.portnov.com"
-      Then I type email "tabai0204+1@gmail.com"
-      And I type password "12345Abc"
-      Then I click submit button
-      And I wait for 3 seconds
-      And I verify current user role set to "STUDENT"
+    Scenario: Teacher change students name
+      Given  TA open url "http://ask-stage.portnov.com"
+      Then TA type email "tabai0204+1@gmail.com"
+      And TA type password "12345678"
+      Then TA click submit button
+      Then TA navigate to "User's management page"
+      And TA click on student name "Aikanysh Tabaldyeva"
+      Then TA click on button "options"
+      And TA click "Change User's Name" button
+      Then TA type "Aikanysh Tab" into "New User's name field"
+      Then TA click on "Change" button
+      And TA verify new user name set to "Aikanysh Tab"
+
+
+
+
+
+
