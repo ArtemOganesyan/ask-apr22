@@ -61,7 +61,6 @@ public class DariaStepDefs {
     }
 
 
-
     @Then("DD see the page with grades details")
     public void ddSeeThePageWithGradesDetails() {
         getDriver().findElements(By.xpath("//mat-card[@class='header mat-card']"));
@@ -76,7 +75,23 @@ public class DariaStepDefs {
     public void ddClickCloseButton() {
         getDriver().findElement(By.xpath("//button[@class='mat-raised-button mat-primary']")).click();
     }
+
+    @And("DD click Assignments button")
+    public void ddClickAssignmentsButton() {
+        getDriver().findElement(By.xpath("//a[@href='/#/assignments']")).click();
+    }
+
+    @And("DD click New Assignments button")
+    public void ddClickNewAssignmentsButton() {
+        getDriver().findElement(By.xpath("//span[contains(text(),'Create New Assignment')]")).getText();
+    }
+
+    @Then("DD click Select Quiz To Assign drop-down list")
+    public void ddClickSelectQuizToAssignDropDownList() {
+        getDriver().findElement(By.xpath("//mat-select[@aria-label='Select Quiz To Assign']")).click();
+    }
 }
+
 
 
 

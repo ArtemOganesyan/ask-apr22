@@ -1,8 +1,8 @@
 @test
-  Feature: Student My Grades
+  Feature: Test sets
 
     @test1
- Scenario: Login in as a Student
+    Scenario: Login in as a Student
       Given DD open url "http://ask-stage.portnov.com/#/login"
       Then DD type login "medvedeva.d.d+4@gmail.com"
       And DD type password "qwerty"
@@ -45,6 +45,29 @@
           Then DD see the page with grades details
           Then DD wait for 3 seconds
           And DD click Close button
+
+          @test5
+          Scenario: Login as a teacher
+            Given DD open url "http://ask-stage.portnov.com/#/login"
+            Then DD type login "medvedeva.d.d@gmail.com"
+            And DD type password "qwerty"
+            Then DD click submit button
+            Then DD wait for 3 seconds
+            And DD verify current user role set to "TEACHER"
+
+            @test6
+            Scenario: Teacher can assign quiz for student individually
+              Given DD open url "http://ask-stage.portnov.com/#/login"
+              Then DD type login "medvedeva.d.d@gmail.com"
+              And DD type password "qwerty"
+              Then DD click submit button
+              Then DD wait for 3 seconds
+              And DD click Assignments button
+              Then DD wait for 3 seconds
+              And DD click New Assignments button
+              Then DD wait for 3 seconds
+              Then DD click Select Quiz To Assign drop-down list
+
 
 
 
