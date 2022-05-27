@@ -166,8 +166,9 @@ public class VHStepDefs {
     }
 
     @And("VH wait for {int} seconds")
-    public void vhWaitForSeconds(int sec) {
-        assertThat(sec * 1000);
+    public void vhWaitForSeconds(int sec) throws InterruptedException {
+        Thread.sleep(sec * 1000);
+        //assertThat(sec * 1000);
     }
 
     @Then("VH should not see confirmation of successful registering")

@@ -70,4 +70,9 @@ public class AikanyshSteps {
         Assert.assertEquals(NewUserName, "Aikanysh Tab");
 
     }
+
+    @Then("TA wait for {int} sec")
+    public void taWaitForSec(int sec) throws InterruptedException {
+        Thread.sleep(sec * 1000);
+    }
 }

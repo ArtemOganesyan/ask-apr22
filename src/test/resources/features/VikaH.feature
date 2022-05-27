@@ -304,7 +304,7 @@
       And VH type password "test123"
       And VH click Sign In button
       Then VH homepage should be displayed
-      And VH wait for 1 seconds
+      And VH wait for 3 seconds
       And VH homepage should contain role "TEACHER"
       When VH click submissions button
       Then VH see submission page
