@@ -32,7 +32,7 @@ public class KyryloStepdefs {
 
 	@And("KM select question type {string} in the question section {int}")
 	public void kmSelectQuestionTypeInTheQuestionSection(String type, int section) {
-		getDriver().findElement(By.xpath("(//mat-expansion-panel-header)[" + section + "]/following-sibling::div //div[contains(text(), '" + type + "')]")).click();
+		getDriver().findElement(By.xpath("( ")).click();
 	}
 
 	@And("KM mark option number {int} as correct answer in question section {int}")
