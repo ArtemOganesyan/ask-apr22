@@ -53,6 +53,22 @@ public class LoginSteps {
     }
 
     @Then("I click {string} button")
-    public void iClickButton(String arg0) {getDriver().findElement(By.xpath("//h5[contains(@text(),'My Grades')]")).click();
+    public void iClickButton(String arg0) {
+        getDriver().findElement(By.xpath("//h5[contains(text(),'My Grades')]")).click();
+    }
+
+    @Then("I click {string}")
+    public void iClick(String arg0) {
+        getDriver(). findElement(By.xpath("//h5[contains(text(),'Submissions')]")).click();
+    }
+
+    @Then("I click on {string}")
+    public void iClickOn(String arg0) {
+        getDriver().findElement(By.xpath("//h5[contains(text(),'Assignments')]")).click();
+    }
+
+    @Then("I click {string} in the side bar")
+    public void iClickInTheSideBar(String arg0) {
+        getDriver().findElement(By.xpath("//h5[contains(text(),'Quizzes')]")).click();
     }
 }
