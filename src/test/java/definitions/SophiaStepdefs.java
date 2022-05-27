@@ -103,6 +103,7 @@ public class SophiaStepdefs {
     public void iVerifyQuizAssignedTo(String quizName, String studentName) {
         String actualText = getDriver().findElement(By.xpath("(//span[contains(text(),'"+quizName+"')])[1]")).getText();
         assertThat(actualText).isEqualTo(quizName);
+
 //        String actualStudent = getDriver().findElement(By.xpath("(//td[contains(text(), '"+studentName+"')])[1]")).getText();
 //        assertThat(actualStudent).isEqualTo(studentName);
 //        System.out.println("Assignment was created" + actualStudent +actualText);
