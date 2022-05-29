@@ -57,13 +57,15 @@ public class DariaStepDefs {
 
     @And("DD verify that graded quiz is displayed")
     public void ddVerifyThatGradedQuizIsDisplayed() {
-        getDriver().findElements(By.xpath("//span[contains(text(),'Details')]"));
+       Boolean res = getDriver().findElement(By.xpath("//span[contains(text(),'Details')]")).isDisplayed();
+       assertThat(res).isTrue();
+
     }
 
 
     @Then("DD see the page with grades details")
     public void ddSeeThePageWithGradesDetails() {
-        getDriver().findElements(By.xpath("//mat-card[@class='header mat-card']"));
+        getDriver().findElement(By.xpath("//mat-card[@class='header mat-card']"));
     }
 
     @And("DD click Details button")
